@@ -138,16 +138,51 @@ public class MainActivity extends AppCompatActivity
         setDefaultLocation();
         this.mMap = googleMap;
         try {
-            JSONObject jsonObject = loadJSONFromAsset(this, "travel.json");
-            JSONArray jsonArray = jsonObject.getJSONArray("markers");
+            // JSON 데이터 파싱
+            String json = "{\n" +
+                    "  \"result\": [{\n" +
+                    "    \"lng\": \"127.948768222583\",\n" +
+                    "    \"title\": \"국립충주기상과학관\",\n" +
+                    "    \"lat\": \"36.9856858899357\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.637340251904\",\n" +
+                    "    \"title\": \"산모랭이 풀내음 농장\",\n" +
+                    "    \"lat\": \"36.511032728211\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"128.370751882825\",\n" +
+                    "    \"title\": \"다누리센터\",\n" +
+                    "    \"lat\": \"36.9854106363708\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.478379\",\n" +
+                    "    \"title\": \"청주시립미술관\",\n" +
+                    "    \"lat\": \"36.634836\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.70062173644754\",\n" +
+                    "    \"title\": \"청주 동보원자연휴양림\",\n" +
+                    "    \"lat\": \"36.658812192101784\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.748100\",\n" +
+                    "    \"title\": \"문광 저수지 은행나무길\",\n" +
+                    "    \"lat\": \"36.766063\"\n" +
+                    "  }],\n" +
+                    "  \"pageIndex\": 1,\n" +
+                    "  \"pageUnit\": 10,\n" +
+                    "  \"totalCount\": 1580,\n" +
+                    "  \"searchCnd\": \"all\",\n" +
+                    "  \"searchKrwd\": \"\",\n" +
+                    "  \"status\": \"OK\"\n" +
+                    "}";
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray("result");
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject markerObject = jsonArray.getJSONObject(i);
-                double lat = markerObject.getDouble("latitude");
-                double lng = markerObject.getDouble("longitude");
+                double latitude = Double.parseDouble(markerObject.getString("lat"));
+                double longitude = Double.parseDouble(markerObject.getString("lng"));
                 String title = markerObject.getString("title");
-                LatLng latLng = new LatLng(lat, lng);
-                mMap.addMarker(new MarkerOptions().position(latLng).title(title));
+                LatLng latLng = new LatLng(latitude, longitude);
+                googleMap.addMarker(new MarkerOptions().position(latLng).title(title));
             }
 
         } catch (JSONException e) {
@@ -292,9 +327,9 @@ public class MainActivity extends AppCompatActivity
 
 
                 //현재 위치에 마커 생성하고 이동
-                setCurrentLocation(location, markerTitle, markerSnippet);
-
-                mCurrentLocatiion = location;
+//                setCurrentLocation(location, markerTitle, markerSnippet);
+//
+//                mCurrentLocatiion = location;
             }
 
 
