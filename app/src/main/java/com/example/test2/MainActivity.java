@@ -164,6 +164,22 @@ public class MainActivity extends AppCompatActivity
                     "    \"lng\": \"127.748100\",\n" +
                     "    \"title\": \"문광 저수지 은행나무길\",\n" +
                     "    \"lat\": \"36.766063\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.49009483316492\",\n" +
+                    "    \"tourNm\": \"청남대\",\n" +
+                    "    \"lat\": \"36.46224737088981\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.81721986071967\",\n" +
+                    "    \"tourNm\": \"속리산국립공원\",\n" +
+                    "    \"lat\": \"36.51737133895241\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.86796970961937\",\n" +
+                    "    \"tourNm\": \"구병산\",\n" +
+                    "    \"lat\": \"36.45041210479316\"\n" +
+                    "  }, {\n" +
+                    "    \"lng\": \"127.5955697477588\",\n" +
+                    "    \"tourNm\": \"좌구산천문대\",\n" +
+                    "    \"lat\": \"36.763886704705705\"\n" +
                     "  }],\n" +
                     "  \"pageIndex\": 1,\n" +
                     "  \"pageUnit\": 10,\n" +
@@ -327,9 +343,9 @@ public class MainActivity extends AppCompatActivity
 
 
                 //현재 위치에 마커 생성하고 이동
-//                setCurrentLocation(location, markerTitle, markerSnippet);
-//
-//                mCurrentLocatiion = location;
+                setCurrentLocation(location, markerTitle, markerSnippet);
+
+                mCurrentLocatiion = location;
             }
 
 
