@@ -27,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        //닉네임규정 버튼 클릭시 액티비티 전환
-//        Button name_rule_btn = (Button) findViewById(R.id.button2);
-//        name_rule_btn.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view){
-//                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-//                startActivity(intent);
-//            }
-//        });
+        //닉네임규정 버튼 클릭시 액티비티 전환
+        Button name_rule_btn = (Button) findViewById(R.id.button2);
+        name_rule_btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                startActivity(intent);
+            }
+        });
     }
 }

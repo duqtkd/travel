@@ -37,20 +37,20 @@
         android:textColor="#ffffff"
         ></Button>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="내 일정"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/t_button"
-        android:textColor="#ffffff"
-        ></Button>
+<!--    <Button-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="내 일정"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:background="@drawable/t_button"-->
+<!--        android:textColor="#ffffff"-->
+<!--        ></Button>-->
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="여행지 추천"
+        android:text="축제일정"
         android:background="@drawable/t_button"
         android:textColor="#ffffff"
         ></Button>

@@ -1,50 +1,185 @@
 {
-  "result": [{
-    "lng": "127.948768222583",
-    "title": "국립충주기상과학관",
-    "lat": "36.9856858899357"
-  }, {
-    "lng": "127.637340251904",
-    "title": "산모랭이 풀내음 농장",
-    "lat": "36.511032728211"
-     }, {
-    "lng": "128.370751882825",
-    "title": "다누리센터",
-    "lat": "36.9854106363708"
-    }, {
-    "lng": "127.478379",
-    "title": "청주시립미술관",
-    "lat": "36.634836"
-     }, {
-    "lng": "127.70062173644754",
-    "title": "청주 동보원자연휴양림",
-    "lat": "36.658812192101784"
-    }, {
-    "lng": "127.748100",
-    "title": "문광 저수지 은행나무길",
-    "lat": "36.766063"
-    }, {
-
-    "lng": "127.49009483316492"
-    "title": "청남대",
-    "lat": "36.46224737088981"
-    }, {
-    "lng": "127.81721986071967",
-    "title": "속리산국립공원",
-    "lat": "36.51737133895241"
-    }, {
-    "lng": "127.86796970961937",
-    "title": "구병산",
-    "lat": "36.45041210479316"
-    }, {
-    "lng": "127.5955697477588",
-    "title": "좌구산천문대",
-    "lat": "36.763886704705705"
-  }],
-  "pageIndex": 1,
-  "pageUnit": 10,
-  "totalCount": 1580,
-  "searchCnd": "all",
-  "searchKrwd": "",
-  "status": "OK"
+  "response": {
+    "header": {
+      "resultcode": 0,
+      "resultmsg": "OK"
+    },
+    "body": {
+      "items": {
+        "item": [
+          {
+            "addr1": "충청북도 괴산군 괴산읍 동진천길 197",
+            "addr2": {},
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0207",
+            "cat3": "A02070200",
+            "contentid": 2754421,
+            "contenttypeid": 15,
+            "createdtime": 20211007024922,
+            "eventstartdate": 20231103,
+            "eventenddate": 20231105,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/49/2856749_image2_1.jpg",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/49/2856749_image3_1.jpg",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.7857860142,
+            "mapy": 36.8123726622,
+            "mlevel": 6,
+            "modifiedtime": 20231005151349,
+            "areacode": 33,
+            "sigungucode": 1,
+            "tel": "043-830-3463",
+            "title": "괴산김장축제"
+          },
+          {
+            "addr1": "충청북도 보은군 보은읍 이평리",
+            "addr2": "보은읍 뱃들공원 및 속리산 일원",
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0207",
+            "cat3": "A02070200",
+            "contentid": 900168,
+            "contenttypeid": 15,
+            "createdtime": 20091217004859,
+            "eventstartdate": 20231013,
+            "eventenddate": 20231022,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/95/3006695_image2_1.png",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/95/3006695_image3_1.png",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.7234201582,
+            "mapy": 36.4863477992,
+            "mlevel": 6,
+            "modifiedtime": 20230907165027,
+            "areacode": 33,
+            "sigungucode": 3,
+            "tel": "043-540-3392",
+            "title": "보은대추 축제"
+          },
+          {
+            "addr1": "충청북도 청주시 청원구 초정약수로 851 초정행궁",
+            "addr2": {},
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0207",
+            "cat3": "A02070200",
+            "contentid": 1344850,
+            "contenttypeid": 15,
+            "createdtime": 20110729204003,
+            "eventstartdate": 20231020,
+            "eventenddate": 20231022,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/27/3004627_image2_1.jpg",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/27/3004627_image3_1.jpg",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.6006940627,
+            "mapy": 36.7213297572,
+            "mlevel": 6,
+            "modifiedtime": 20230912111902,
+            "areacode": 33,
+            "sigungucode": 10,
+            "tel": "043-223-4030",
+            "title": "세종대왕과 초정약수축제"
+          },
+          {
+            "addr1": "충청북도 영동군 영동황간로 122 영동체육관",
+            "addr2": {},
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0207",
+            "cat3": "A02070200",
+            "contentid": 650690,
+            "contenttypeid": 15,
+            "createdtime": 20081112185636,
+            "eventstartdate": 20240119,
+            "eventenddate": 20240121,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/62/2953362_image2_1.jpg",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/62/2953362_image3_1.jpg",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.7819849136,
+            "mapy": 36.1640689941,
+            "mlevel": 6,
+            "modifiedtime": 20230403151107,
+            "areacode": 33,
+            "sigungucode": 4,
+            "tel": "043-745-8917",
+            "title": "영동곶감축제"
+          },
+          {
+            "addr1": "충청북도 옥천군 청성면 한두레로 387",
+            "addr2": "마을공동시설",
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0208",
+            "cat3": "A02080600",
+            "contentid": 3020205,
+            "contenttypeid": 15,
+            "createdtime": 20231016161421,
+            "eventstartdate": 20231027,
+            "eventenddate": 20231029,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/87/3020187_image2_1.png",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/87/3020187_image3_1.png",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.7290185351,
+            "mapy": 36.325702378,
+            "mlevel": 6,
+            "modifiedtime": 20231016161441,
+            "areacode": 33,
+            "sigungucode": 5,
+            "tel": "010-4514-7074",
+            "title": "호캠프 할로윈"
+          },
+          {
+            "addr1": "충청북도 단양군 단양읍 상진리",
+            "addr2": "114-2",
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0208",
+            "cat3": "A02081200",
+            "contentid": 2865520,
+            "contenttypeid": 15,
+            "createdtime": 20221011175314,
+            "eventstartdate": 20231021,
+            "eventenddate": 20231022,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/17/3017617_image2_1.jpg",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/17/3017617_image3_1.jpg",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 128.3498222997,
+            "mapy": 36.9809498423,
+            "mlevel": 6,
+            "modifiedtime": 20231004172420,
+            "areacode": 33,
+            "sigungucode": 2,
+            "tel": "043-423-0377",
+            "title": "2023단양레이크파크수상스포츠대회"
+          },
+          {
+            "addr1": "충청북도 청주시 청원구 내수읍 비중리",
+            "addr2": 390,
+            "booktour": {},
+            "cat1": "A02",
+            "cat2": "A0207",
+            "cat3": "A02070200",
+            "contentid": 2666412,
+            "contenttypeid": 15,
+            "createdtime": 20200805023624,
+            "eventstartdate": 20231028,
+            "eventenddate": 20231028,
+            "firstimage": "http://tong.visitkorea.or.kr/cms/resource/30/3018430_image2_1.jpg",
+            "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/30/3018430_image3_1.jpg",
+            "cpyrhtdivcd": "Type3",
+            "mapx": 127.5803294825,
+            "mapy": 36.7120110153,
+            "mlevel": 6,
+            "modifiedtime": 20231016150647,
+            "areacode": 33,
+            "sigungucode": 10,
+            "tel": "0507-1341-1731",
+            "title": "[농(農) 리브 디 아트] - 허수아비아트축제"
+          }
+        ]
+      },
+      "numofrows": 7,
+      "pageno": 1,
+      "totalcount": 7
+    }
+  }
 }
