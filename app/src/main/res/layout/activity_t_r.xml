@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="40dp"
+        android:text="여행지 추천"
+        android:textSize="20sp"
+        android:textColor="#4B270F"
+        ></TextView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="축제"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/t_button"
+        android:textColor="#ffffff"
+        android:drawableLeft="@drawable/festival_icon"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="날씨"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/t_button"
+        android:textColor="#ffffff"
+        android:drawableLeft="@drawable/weather_icon"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="키워드"
+        android:textSize="18sp"
+        android:background="@drawable/t_button"
+        android:textColor="#ffffff"
+        android:drawableLeft="@drawable/keyword_icon"
+        ></Button>
+
+
+</LinearLayout>
