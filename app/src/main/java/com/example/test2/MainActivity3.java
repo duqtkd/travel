@@ -62,11 +62,11 @@ public class MainActivity3 extends AppCompatActivity {
 
                 // 텍스트 정보를 TextView에 표시
                 TextView textView = new TextView(this);
-                textView.setText("Title: " + title + "\n"
-                        + "Address: " + address + "\n"
-                        + "Event Start Date: " + eventStartDate + "\n"
-                        + "Event End Date: " + eventEndDate + "\n"
-                        + "Phone Number: " + phoneNumber + "\n");
+                textView.setText("축제명: " + title + "\n"
+                        + "주소: " + address + "\n"
+                        + "시작일: " + eventStartDate + "\n"
+                        + "종료일: " + eventEndDate + "\n"
+                        + "전화번호: " + phoneNumber + "\n");
 
                 // 이미지와 텍스트 정보를 담는 레이아웃을 생성
                 LinearLayout itemLayout = new LinearLayout(this);
