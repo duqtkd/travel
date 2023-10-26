@@ -14,26 +14,19 @@
         android:layout_marginBottom="40dp"
         android:text="일정 만들기"
         android:textSize="20sp"
-        android:textColor="#4B270F"
-        ></TextView>
+        android:textColor="#4B270F"/>
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="map"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="200dp"
-        android:textSize="40sp"
-        ></TextView>
+        android:layout_height="wrap_content" />
 
 
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="여행지 검색"
-        ></EditText>
+        android:hint="여행지 검색"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -41,7 +34,6 @@
         android:gravity="center"
         android:text="검색장소/추천장소"
         android:textSize="25sp"
-        android:layout_marginTop="50dp"
-        ></TextView>
+        android:layout_marginTop="50dp"/>
 
 </LinearLayout>

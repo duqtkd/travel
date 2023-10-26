@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="40dp"
+        android:text="추천 여행지"
+        android:textSize="20sp"
+        android:id="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#4B270F"/>
+
     <RelativeLayout
         android:id="@+id/map_view"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/edSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    ...
+        android:layout_height="0dp" />
 
-</RelativeLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edSearch"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/tvSearchListTitle"
+        android:hint="여행지 검색"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/tvSearchListTitle"
+        android:text="추천장소"
+        app:layout_constraintBottom_toTopOf="@id/listSearchList"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listSearchList"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

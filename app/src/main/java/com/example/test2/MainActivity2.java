@@ -6,21 +6,36 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import net.daum.mf.map.api.CameraUpdateFactory;
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
 public class MainActivity2 extends AppCompatActivity implements MapView.CurrentLocationEventListener, MapView.MapViewEventListener {
@@ -28,10 +43,19 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
     private MapView mapView;
     private ViewGroup mapViewContainer;
 
+    private EditText edSearch;
+    private ListView listNearMarker;
+
+    private ArrayList<MapPOIItem> markerList = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        edSearch = findViewById(R.id.edSearch);
+        listNearMarker = findViewById(R.id.listSearchList);
+
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
@@ -64,9 +88,11 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         mapViewContainer = findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
         mapView.setMapViewEventListener(this);
-        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);   // 이부분 주석처리되어있었는데 확인 부탁드려요
 
-        // 커스텀 마커 추가
+        //region ---- 커스텀 마커 추가 Section  ---
+
+//        // 커스텀 마커 추가
         addCustomMarker(mapView, "국립충주기상과학관", 1, MapPoint.mapPointWithGeoCoord(36.9856858899357, 127.948768222583), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "산모랭이 풀내음 농장", 2, MapPoint.mapPointWithGeoCoord(36.511032728211, 127.637340251904), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "다누리센터", 3, MapPoint.mapPointWithGeoCoord(36.9854106363708, 128.370751882825), R.drawable.map_marker_icon);
@@ -120,7 +146,6 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         addCustomMarker(mapView, "꽃지해수욕장", 51, MapPoint.mapPointWithGeoCoord(36.497028, 126.33507), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "대천항", 52, MapPoint.mapPointWithGeoCoord(36.327136, 126.5109855), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "오천항", 53, MapPoint.mapPointWithGeoCoord(36.4390883, 126.5197161), R.drawable.map_marker_icon);
-        addCustomMarker(mapView, "삼길포항", 54, MapPoint.mapPointWithGeoCoord(37.003564, 126.453388), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "홍원항", 55, MapPoint.mapPointWithGeoCoord(36.157853, 126.500155), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "마량포구", 56, MapPoint.mapPointWithGeoCoord(36.129184, 126.503985), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "장항항", 57, MapPoint.mapPointWithGeoCoord(36.007418, 126.6858628), R.drawable.map_marker_icon);
@@ -153,6 +178,7 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         addCustomMarker(mapView, "강경자전거길", 84, MapPoint.mapPointWithGeoCoord(36.1542814, 127.01545), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "사계솔바람길", 85, MapPoint.mapPointWithGeoCoord(36.2657053, 127.2717458), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "도비도해양체험", 86, MapPoint.mapPointWithGeoCoord(37.021151, 126.46236), R.drawable.map_marker_icon);
+        addCustomMarker(mapView, "삼길포항", 54, MapPoint.mapPointWithGeoCoord(37.003564, 126.453388), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "칠갑산오토캠핑장", 87, MapPoint.mapPointWithGeoCoord(36.3958142, 126.8636477), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "솔향기길", 88, MapPoint.mapPointWithGeoCoord(36.9667956, 126.3047397), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "개화예술공원", 89, MapPoint.mapPointWithGeoCoord(36.3117295, 126.657359), R.drawable.map_marker_icon);
@@ -293,6 +319,10 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         addCustomMarker(mapView, "토굴새우젓단지", 224, MapPoint.mapPointWithGeoCoord(36.487609, 126.616498), R.drawable.map_marker_icon);
         addCustomMarker(mapView, "대흥슬로시티", 225, MapPoint.mapPointWithGeoCoord(36.606666, 126.790366), R.drawable.map_marker_icon);
 
+        //endregion
+
+
+        setEventListener();
     }
 
     private void addCustomMarker(MapView mapView, String title, int tag, MapPoint mapPoint, int customImageResource) {
@@ -306,6 +336,8 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         customMarker.setCustomImageAnchor(0.5f, 1.0f);
 
         mapView.addPOIItem(customMarker);
+
+        markerList.add(customMarker);
     }
 
 
@@ -330,6 +362,123 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
                 finish();
             }
         }
+    }
+
+
+    private void setEventListener() {
+        edSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(edSearch.getWindowToken(), 0);
+
+
+                    String searchText = v.getText().toString();
+                    MapPOIItem searchMapPOIItem = null;
+                    double searchLatitude = 0.0;
+                    double searchLongitude = 0.0;
+
+                    // 검색어에 해당하는 마커 찾기
+                    for (MapPOIItem mapPOIItem : markerList) {
+                        if (mapPOIItem.getItemName().contains(searchText)) {
+                            searchMapPOIItem = mapPOIItem;
+                            searchLatitude = searchMapPOIItem.getMapPoint().getMapPointGeoCoord().latitude;
+                            searchLongitude = searchMapPOIItem.getMapPoint().getMapPointGeoCoord().longitude;
+                            break;
+                        }
+                    }
+
+                    if (searchMapPOIItem != null) {
+                        List<MapPOIItem> nearMarker = new ArrayList<>();
+
+                        // 모든 마커와의 거리 계산 및 비교
+                        for (MapPOIItem item : markerList) {
+                            if (item != searchMapPOIItem) {  // 자기 자신과의 거리는 비교하지 않음
+                                double latitude = item.getMapPoint().getMapPointGeoCoord().latitude;
+                                double longitude = item.getMapPoint().getMapPointGeoCoord().longitude;
+
+                                // 두 지점 간의 거리 계산
+                                double distance = calculateDistance(searchLatitude, searchLongitude, latitude, longitude);
+
+                                // 반경 20킬로미터 이내의 마커만 고려
+                                if (distance <= 20.0) {
+                                    // 가장 가까운 5개의 마커를 선택
+                                    if (nearMarker.size() < 6) {
+                                        nearMarker.add(item);
+                                    } else {
+                                        for (MapPOIItem near : nearMarker) {
+                                            double nearLatitude = near.getMapPoint().getMapPointGeoCoord().latitude;
+                                            double nearLongitude = near.getMapPoint().getMapPointGeoCoord().longitude;
+
+                                            // 가장 먼 마커와 비교하여 가장 가까운 5개의 마커를 선택
+                                            double nearDistance = calculateDistance(searchLatitude, searchLongitude, nearLatitude, nearLongitude);
+
+                                            if (distance < nearDistance) {
+                                                nearMarker.remove(near);
+                                                nearMarker.add(item);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        for (MapPOIItem item : nearMarker) {
+                            Log.i("##INFO", "가장 가까운 마커: " + item.getItemName());
+                        }
+
+                        // 거리에 따라 nearMarker 리스트 정렬
+                        double finalSearchLatitude = searchLatitude;
+                        double finalSearchLongitude = searchLongitude;
+                        Collections.sort(nearMarker, new Comparator<MapPOIItem>() {
+                            @Override
+                            public int compare(MapPOIItem item1, MapPOIItem item2) {
+                                double distance1 = calculateDistance(finalSearchLatitude, finalSearchLongitude, item1.getMapPoint().getMapPointGeoCoord().latitude, item1.getMapPoint().getMapPointGeoCoord().longitude);
+                                double distance2 = calculateDistance(finalSearchLatitude, finalSearchLongitude, item2.getMapPoint().getMapPointGeoCoord().latitude, item2.getMapPoint().getMapPointGeoCoord().longitude);
+                                return Double.compare(distance1, distance2);
+                            }
+                        });
+
+                        ArrayList<String> nearMarkerName = new ArrayList<>();
+                        for (MapPOIItem item : nearMarker) {
+                            nearMarkerName.add(item.getItemName());
+                        }
+
+                        mapView.moveCamera(CameraUpdateFactory.newMapPoint(MapPoint.mapPointWithGeoCoord(searchLatitude, searchLongitude), 5));
+
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, nearMarkerName);
+                        listNearMarker.setAdapter(adapter);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    }
+
+    // 두 지점 간의 거리를 계산하는 메서드
+    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+        // 지구 반지름 (단위: km)
+        double radius = 6371;
+
+        // 위도 및 경도를 라디안 단위로 변환
+        double lat1Rad = Math.toRadians(lat1);
+        double lon1Rad = Math.toRadians(lon1);
+        double lat2Rad = Math.toRadians(lat2);
+        double lon2Rad = Math.toRadians(lon2);
+
+        // Haversine 공식을 사용하여 두 지점 간의 거리 계산
+        double dlon = lon2Rad - lon1Rad;
+        double dlat = lat2Rad - lat1Rad;
+        double a = Math.sin(dlat / 2) * Math.sin(dlat / 2) +
+                Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.sin(dlon / 2) * Math.sin(dlon / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double distance = radius * c;
+
+        return distance;
     }
 
     @Override
@@ -396,5 +545,15 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
     public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
 
     }
-
+    //36.782399, 126.455343 //36.81045, 126.370827
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            String url = "kakaomap://route?sp=36.782399,126.455343&ep=36.81045,126.3708278&by=FOOT";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
