@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.test2'
-    compileSdk 33
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.example.test2"
-        minSdk 24
-        targetSdk 33
+        minSdkVersion 24
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -41,5 +41,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.kakao.sdk:kakaonavi:2.4.1'
 
 }

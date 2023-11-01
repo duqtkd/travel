@@ -17,10 +17,12 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -55,6 +57,22 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
         setContentView(R.layout.activity_main);
         edSearch = findViewById(R.id.edSearch);
         listNearMarker = findViewById(R.id.listSearchList);
+
+        Button developer_info_btn = (Button) findViewById(R.id.button3);
+        developer_info_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), MainActivity4.class);
+                startActivity(intent);
+            }
+        });
+        Button developer_info_btns = (Button) findViewById(R.id.btn_start);
+        developer_info_btns.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startTracking();
+            }
+        });
 
 
         try {
@@ -446,10 +464,36 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
                             nearMarkerName.add(item.getItemName());
                         }
 
+                        stopTracking();
                         mapView.moveCamera(CameraUpdateFactory.newMapPoint(MapPoint.mapPointWithGeoCoord(searchLatitude, searchLongitude), 5));
+
 
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, nearMarkerName);
                         listNearMarker.setAdapter(adapter);
+
+
+
+                        ArrayList<MarkerInfo> markerInfos = new ArrayList<>();
+                        for (MapPOIItem item : nearMarker) {
+                            String itemName = item.getItemName();
+                            double latitude = item.getMapPoint().getMapPointGeoCoord().latitude;
+                            double longitude = item.getMapPoint().getMapPointGeoCoord().longitude;
+
+                            MarkerInfo markerInfo = new MarkerInfo(itemName, latitude, longitude);
+                            markerInfos.add(markerInfo);
+                        }
+
+                        Button developer_info_btn = (Button) findViewById(R.id.button3);
+                        developer_info_btn.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View view){
+                            Intent intent = new Intent(getApplicationContext(), MainActivity4.class);
+                            intent.putParcelableArrayListExtra("markerInfos", markerInfos);
+                            startActivity(intent);
+                        }
+                    });
+
+
                     }
                     return true;
                 }
@@ -545,15 +589,21 @@ public class MainActivity2 extends AppCompatActivity implements MapView.CurrentL
     public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
 
     }
-    //36.782399, 126.455343 //36.81045, 126.370827
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            String url = "kakaomap://route?sp=36.782399,126.455343&ep=36.81045,126.3708278&by=FOOT";
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            intent.addCategory(Intent.CATEGORY_BROWSABLE);
-            startActivity(intent);
-        }
-        return super.onKeyDown(keyCode, event);
+    private void startTracking() {
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
     }
+    private void stopTracking() {
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);
+    }
+    //36.782399, 126.455343 //36.81045, 126.370827
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+//            String url = "kakaomap://route?sp=36.782399,126.455343&ep=36.81045,126.3708278&by=FOOT";
+//            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+//            startActivity(intent);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 }

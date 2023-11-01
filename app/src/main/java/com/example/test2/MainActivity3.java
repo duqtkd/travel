@@ -66,7 +66,8 @@ public class MainActivity3 extends AppCompatActivity {
                         + "주소: " + address + "\n"
                         + "시작일: " + eventStartDate + "\n"
                         + "종료일: " + eventEndDate + "\n"
-                        + "전화번호: " + phoneNumber + "\n");
+                        + "전화번호: " + phoneNumber + "\n"
+                        + "----------------------------"+"\n");
 
                 // 이미지와 텍스트 정보를 담는 레이아웃을 생성
                 LinearLayout itemLayout = new LinearLayout(this);

@@ -10,8 +10,8 @@
         android:id="@+id/containerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
+<!--        android:padding="16dp">-->
 
 
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/dataTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             />
 
     </LinearLayout>
