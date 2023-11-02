@@ -51,8 +51,8 @@
             <!-- Intent filter, metadata, and other activity settings can be defined here -->
         </activity>
         <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="3bbdd5bb5cb665bac36f0663f488a0be" />
+        android:name="com.kakao.sdk.AppKey"
+        android:value="317cbadd2f78c7286bf66d93956b1dda" />
 
 
     </application>

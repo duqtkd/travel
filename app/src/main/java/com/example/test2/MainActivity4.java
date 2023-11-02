@@ -17,17 +17,18 @@ public class MainActivity4 extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
 
         //개발자 정보 버튼 클릭시 액티비티 전환
-        Button developer_info_btn = (Button) findViewById(R.id.button4);
-        developer_info_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity5.class);
-                startActivity(intent);
-            }
-        });
+//        Button developer_info_btn = (Button) findViewById(R.id.button4);
+//        developer_info_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity5.class);
+//                startActivity(intent);
+//            }
+//        });
         // MainActivity2로부터 가까운 마커 정보 받기
         ArrayList<MarkerInfo> markerInfos = getIntent().getParcelableArrayListExtra("markerInfos");
+
 
         if (markerInfos != null) {
             // TextView를 사용하여 화면에 가까운 마커 정보 출력
