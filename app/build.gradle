@@ -38,9 +38,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation fileTree(dir: 'src\\main\\jniLibs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation "com.kakao.sdk:v2-all:2.11.2"
+    implementation "com.kakao.sdk:v2-navi:2.11.2"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-//    implementation 'com.kakao.sdk:kakaonavi:2.4.1'
+
 
 }

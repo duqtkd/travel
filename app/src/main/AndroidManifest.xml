@@ -50,6 +50,23 @@
             </intent-filter>
             <!-- Intent filter, metadata, and other activity settings can be defined here -->
         </activity>
+        <activity
+            android:name=".MainActivity5"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <!-- Intent filter, metadata, and other activity settings can be defined here -->
+        </activity>
+
+    <activity
+        android:name=".Search"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+        </intent-filter>
+        <!-- Intent filter, metadata, and other activity settings can be defined here -->
+    </activity>
         <meta-data
         android:name="com.kakao.sdk.AppKey"
         android:value="317cbadd2f78c7286bf66d93956b1dda" />
