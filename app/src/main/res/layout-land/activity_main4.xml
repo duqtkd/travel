@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
+    android:padding="16dp"
     android:background="#F6E5CC"
     tools:context=".MainActivity4">
 
@@ -23,9 +23,12 @@
         android:layout_centerInParent="true" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="8dp"
         android:background="#9CC18427"
         android:gravity="left"

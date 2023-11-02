@@ -2,59 +2,81 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <TextView
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <!--
+      Font family: Inter
+      Line height: 48sp
+      -->
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <View
+        android:id="@+id/group_6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="40dp"
-        android:text="여행지 경로 추천 앱"
-        android:textSize="20sp"
-        android:textColor="#4B270F"
-        ></TextView>
+        android:layout_height="435dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-1dp"
+        android:background="@drawable/group_6" />
 
-    <ImageView
-        android:layout_width="88dp"
-        android:layout_height="79dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="60dp"
-        android:background="@null"
-        android:src="@drawable/baggage_tour_tourist_travel_icon"
-        ></ImageView>
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="70dp"-->
+    <!--        android:layout_marginBottom="40dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="여행지 경로 추천 앱"-->
+    <!--        android:textColor="#4B270F"-->
+    <!--        android:textSize="20sp"></TextView>-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="88dp"-->
+    <!--        android:layout_height="79dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginBottom="60dp"-->
+    <!--        android:background="@null"-->
+    <!--        android:src="@drawable/baggage_tour_tourist_travel_icon"></ImageView>-->
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="일정만들기"
-        android:layout_marginBottom="30dp"
-
+        android:id="@+id/t_button"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/t_button"
-        android:textColor="#ffffff"
-        ></Button>
+
+        android:text="일정만들기"
+        android:textSize="20sp"
+        android:textColor="#6F4507" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="키워드검색"
-        android:layout_marginBottom="30dp"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/t_button"
-        android:textColor="#ffffff"
-        ></Button>
+        android:text="키워드검색"
+        android:textSize="20sp"
+        android:textColor="#6F4507"></Button>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="축제일정"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/t_button"
-        android:textColor="#ffffff"
-        ></Button>
+        android:text="축제일정"
+        android:textSize="20sp"
+        android:textColor="#6F4507"></Button>
 
 
 </LinearLayout>

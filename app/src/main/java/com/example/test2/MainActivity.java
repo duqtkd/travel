@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //개발자 정보 버튼 클릭시 액티비티 전환
-        Button developer_info_btn = (Button) findViewById(R.id.button1);
+        Button developer_info_btn = (Button) findViewById(R.id.t_button);
         developer_info_btn.setOnClickListener(new View.OnClickListener(){
 
             @Override

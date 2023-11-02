@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6E5CC"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -14,15 +16,27 @@
 <!--        android:padding="16dp">-->
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="축제일정"
+            android:textSize="24sp"
+            android:textColor="#6F4507"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:background="#9CC18427"
+            android:layout_centerHorizontal="true"
+        />
 
         <!-- ImageView -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/dataTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             />
 
     </LinearLayout>

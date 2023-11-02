@@ -2,6 +2,8 @@ package com.example.test2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -68,6 +70,8 @@ public class MainActivity3 extends AppCompatActivity {
                         + "종료일: " + eventEndDate + "\n"
                         + "전화번호: " + phoneNumber + "\n"
                         + "----------------------------"+"\n");
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setTextColor(Color.parseColor("#8B4513"));
 
                 // 이미지와 텍스트 정보를 담는 레이아웃을 생성
                 LinearLayout itemLayout = new LinearLayout(this);
